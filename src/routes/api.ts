@@ -1,5 +1,6 @@
 import { Router, Request, Response } from "express";
 import { createClient } from "@supabase/supabase-js";
+import { getErrorMessage } from "../util/util";
 
 // https://supabase.com/docs/reference/javascript/select
 const supabaseUrl = process.env.SUPABASE_URL as string;
@@ -8,13 +9,6 @@ const supabaseKey = process.env.SUPABASE_KEY as string;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export const apiRouter: Router = Router();
-
-const getErrorMessage = (error: unknown): string => {
-  if (error instanceof Error) {
-    return error.message;
-  }
-  return String(error);
-};
 
 apiRouter.get("/products", async (req: Request, res: Response) => {
   try {

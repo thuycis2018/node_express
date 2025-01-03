@@ -1,27 +1,30 @@
+@API_KEY=key_here
+
 ### GET request to fetch all products
 GET http://localhost:3000/api/products
+apiKey: {{API_KEY}}
 
 ### GET request to fetch featured products
 GET http://localhost:3000/api/products/featured
+apiKey: {{API_KEY}}
 
 ### GET request to fetch 1 product
 GET http://localhost:3000/api/products/5f27c6f3-6849-488b-9d9d-9c2a8a424f08
-
-### GET request to fetch 1 product
-GET http://localhost:3000/api/products/1
+apiKey: {{API_KEY}}
 
 ### POST request to add a product
 POST http://localhost:3000/api/products
+apiKey: {{API_KEY}}
 Content-Type: application/json
 
 {
-  "id": "1",
+  "id": "3",
   "name": "New Product",
   "company": "Cosma Service LLC",
   "description": "Add-on technical support per hour.",
   "price": "200",
   "featured": false,
-  "slug": "tech-support",
+  "slug": "tech-support3",
   "image": "https://hcojahlxpcsdpohxnqrt.supabase.co/storage/v1/object/public/cosma_store/1730476675251-slider2.svg",
   "createdAt": "2025-01-17T23:28:09.486",
   "updatedAt": "2025-01-17T23:29:13.565",
@@ -29,7 +32,8 @@ Content-Type: application/json
 }
 
 ### PUT request to update a product
-PUT http://localhost:3000/api/products/1
+PUT http://localhost:3000/api/products/3
+apiKey: {{API_KEY}}
 Content-Type: application/json
 
 {
@@ -37,4 +41,5 @@ Content-Type: application/json
 }
 
 ### DELETE request to remove a product
-DELETE http://localhost:3000/api/products/1
+DELETE http://localhost:3000/api/products/3
+apiKey: {{API_KEY}}
