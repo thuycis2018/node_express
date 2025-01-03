@@ -1,7 +1,8 @@
 @API_KEY=key_here
+@SITE_URL=site_here
 
 ### GET request to fetch all products
-GET http://localhost:3000/api/products
+GET {{SITE_URL}}/api/products
 apiKey: {{API_KEY}}
 
 ### GET request to fetch featured products
