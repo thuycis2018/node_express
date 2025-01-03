@@ -2,6 +2,7 @@ import "./env";
 import express, { Application, Request, Response, NextFunction } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
+import path from "path";
 import { apiRouter } from "./routes/api";
 import { apiKeyMiddleware } from "./middleware/auth";
 
@@ -13,6 +14,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api", apiKeyMiddleware);
 app.use("/api", apiRouter);
+
+app.get("/", (req: Request, res: Response) => {
+  res.sendFile(path.join(__dirname, "../public", "index.html"));
+});
 
 // Local server (for development)
 if (process.env.NODE_ENV !== "production") {
